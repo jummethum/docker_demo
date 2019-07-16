@@ -19,7 +19,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.withRun('-p 4000:80') {
-          sh 'echo 123'
+          sh 'curl http://127.0.0.1:80'
         }
     }
 }
