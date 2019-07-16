@@ -1,14 +1,9 @@
 pipeline {
-  node {
-    checkout scm
-    def customImage = docker.build("friendlyhello:${env.BUILD_ID}")
-
-  }
+  agent { dockerfile true }
   stages {
-    stage('deploy') {
+    stage('zap') {
       steps {
-        customImage.withRun('-p 4000:80') {
-		}
+        sh 'git --version'
       }
     }
   }
