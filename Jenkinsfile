@@ -8,9 +8,7 @@ node {
     }
 	
 	stage('Clean up') {
-		sh 'docker kill $(docker ps -q)'
-		sh 'docker rm $(docker ps -a -q)'
-		sh 'docker rmi $(docker images -q)'
+		sh 'docker rm $(docker stop $(docker ps -a -q --filter ancestor=friendlyhello --format="{{.ID}}"))'
 	
 	}
 
