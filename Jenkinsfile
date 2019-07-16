@@ -18,8 +18,7 @@ node {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
-        app.withRun('-p 4000:80') {
-          sh 'curl http://127.0.0.1:4000'
-        }
+        sh 'docker run -d -p 4000:80 friendlyhello'
+		sh 'curl http://localhost:4000/'
     }
 }
