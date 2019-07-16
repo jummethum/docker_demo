@@ -7,7 +7,8 @@ pipeline {
   stages {
     stage('deploy') {
       steps {
-        customImage.withRun('-p 4000:80)
+        customImage.withRun('-p 4000:80') {
+		}
       }
     }
   }
