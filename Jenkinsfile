@@ -6,6 +6,13 @@ node {
 
         checkout scm
     }
+	
+	stage('Clean up') {
+		sh 'docker kill $(docker ps -q)'
+		sh 'docker rm $(docker ps -a -q)'
+		sh 'docker rmi $(docker images -q)'
+	
+	}
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
